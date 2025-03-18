@@ -103,9 +103,6 @@ public class ComicService {
         if (optionalComic.isEmpty()) {
             throw new ComicStoreNotFoundException("There is no Comic with the ISBN" + ISBN + "does not exist");
         }
-        // !TO CHECK
-        // comicRepository.deleteByISBN(ISBN);
-
+        comicRepository.deleteByISBN(ISBN);
     }
-
 }

@@ -13,4 +13,7 @@ public interface ComicRepository extends JpaRepository<Comic, Long> {
     Optional<Comic> findByISBN(String ISBN);
 
     Optional<Comic> findByAuthor(String author);
+
+    Optional<Comic> deleteByISBN(String ISBN);
+    //try with void deleteByISBN(String ISBN)
 }
