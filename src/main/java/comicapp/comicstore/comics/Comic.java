@@ -2,14 +2,16 @@ package comicapp.comicstore.comics;
 
 import jakarta.persistence.*;
 
+@Entity
+@Table(name = "comics")
 public class Comic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id", nullable = false)
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name="ISBN", nullable = false)
+    @Column(name = "ISBN", nullable = false, unique = true)
     private Long ISBN;
 
     private String name;
@@ -17,21 +19,32 @@ public class Comic {
     private String editorial;
     private String genre;
     private String description;
-    private enum state{bought, notBought};
+
+    @Enumerated(EnumType.STRING)
+    private State state;
 
     private float price;
 
     private String imageUrl;
 
-    public Comic(Long ISBN, String name, String author, String editorial, String genre, String description, float price, String imageUrl) {
+    public Comic() {
+    }
+
+    public Comic(Long ISBN, String name, String author, String editorial, String genre, String description, State state,
+            float price, String imageUrl) {
         this.ISBN = ISBN;
         this.name = name;
         this.author = author;
         this.editorial = editorial;
         this.genre = genre;
         this.description = description;
+        this.state = state;
         this.price = price;
         this.imageUrl = imageUrl;
+    }
+
+    public enum State {
+        BOUGHT, NOT_BOUGHT
     }
 
     public Long getId() {
@@ -62,7 +75,7 @@ public class Comic {
         return description;
     }
 
-    public boolean isState() {
+    public State getState() {
         return state;
     }
 
@@ -102,7 +115,7 @@ public class Comic {
         this.description = description;
     }
 
-    public void setState(boolean state) {
+    public void setState(State state) {
         this.state = state;
     }
 
