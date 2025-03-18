@@ -37,4 +37,41 @@ public class UserService {
         User user = optionalUser.get();
         return UserMapper.toResponseDTO(user);
     }
+
+    public List<UserResponseDTO> findByUsernameIgnoreCaseContaining(String name){
+        List<User> users = userRepository.findByUsernameIgnoreCaseContaining(name);
+
+        if(users.isEmpty()){
+            throw new ComicStoreNotFoundException("The user with the username" + name + "does not exist.");
+        }
+        return users.stream()
+                .map(UserMapper::toResponseDTO).toList();
+    }
+
+    public UserResponseDTO updateUserById(Long id, UserRequestDTO userRequestDTO){
+        Optional<User> optionalUser = userRepository.findById(id);
+
+        if(optionalUser.isPresent()){
+            User user = optionalUser.get();
+
+            user.setUsername(userRequestDTO.username());
+            user.setName(userRequestDTO.name());
+            user.setSurname(userRequestDTO.surname());
+            user.setMyComics(userRequestDTO.myComics());
+            user.setFavourites(userRequestDTO.favourites());
+
+            User updatedUser = userRepository.save(user);
+            return UserMapper.toResponseDTO(updatedUser);
+        }
+        throw new ComicStoreNotFoundException("The user with the id" + id + "does not exist.");
+    }
+
+    public void deleteUserById(Long id){
+        Optional<User> optionalUser = userRepository.findById(id);
+
+        if(optionalUser.isEmpty()){
+            throw new ComicStoreNotFoundException("The user with the id" + id + "does not exist.");
+        }
+        userRepository.deleteById(id);
+    }
 }
