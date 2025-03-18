@@ -9,11 +9,4 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
-
-public @interface UserController {
-
-    private final UserService userService;
-    private UserRepository userRepository;
-    private final UserMapper userMapper;
-
-}
+public class

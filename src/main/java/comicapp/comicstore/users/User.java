@@ -24,10 +24,22 @@ public class User {
     @JoinColumn(name = "ISBN", nullable = false)
     private Comic favourites;
 
+    public User() {
+    }
+
     public User(String name, String surname, String username) {
         this.name = name;
         this.surname = surname;
         this.username = username;
+    }
+
+    public User(String name, Long id, String surname, String username, Comic myComics, Comic favourites) {
+        this.name = name;
+        this.id = id;
+        this.surname = surname;
+        this.username = username;
+        this.myComics = myComics;
+        this.favourites = favourites;
     }
 
     public String getName() {
@@ -68,5 +80,9 @@ public class User {
 
     public void setFavourites(Comic favourites) {
         this.favourites = favourites;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
