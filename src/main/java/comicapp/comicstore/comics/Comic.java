@@ -17,25 +17,19 @@ public class Comic {
     private String editorial;
     private String genre;
     private String description;
-    private boolean state{
-        //correct
-        bought, notBought
-    };
-
-    //private int quantity;
+    private enum state{bought, notBought};
 
     private float price;
 
     private String imageUrl;
 
-    public Comic(Long ISBN, String name, String author, String editorial, String genre, String description, boolean state, float price, String imageUrl) {
+    public Comic(Long ISBN, String name, String author, String editorial, String genre, String description, float price, String imageUrl) {
         this.ISBN = ISBN;
         this.name = name;
         this.author = author;
         this.editorial = editorial;
         this.genre = genre;
         this.description = description;
-        this.state = state;
         this.price = price;
         this.imageUrl = imageUrl;
     }
