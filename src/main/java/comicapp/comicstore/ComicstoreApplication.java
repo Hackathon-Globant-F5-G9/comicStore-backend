@@ -8,6 +8,7 @@ public class ComicstoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ComicstoreApplication.class, args);
+		System.out.println("MyComics");
 	}
 
 }

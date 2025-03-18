@@ -11,7 +11,7 @@ public class Comic {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "ISBN", nullable = false, unique = true)
+    @Column(name = "isbn", nullable = false, unique = true)
     private String ISBN;
 
     private String name;

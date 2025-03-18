@@ -17,11 +17,11 @@ public class User {
     private String username;
 
     @ManyToOne
-    @JoinColumn(name = "ISBN", nullable = false)
+    @JoinColumn(name = "myComics", nullable = false)
     private Comic myComics;
 
     @ManyToOne
-    @JoinColumn(name = "ISBN", nullable = false)
+    @JoinColumn(name = "favourites", nullable = false)
     private Comic favourites;
 
     public User() {
