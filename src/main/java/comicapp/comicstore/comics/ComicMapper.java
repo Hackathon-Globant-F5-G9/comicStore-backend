@@ -25,7 +25,7 @@ public class ComicMapper {
                 comic.getEditorial(),
                 comic.getGenre(),
                 comic.getDescription(),
-                comic.getState().name(), // Convertir enum a String
+                comic.getState().name(), // Convert enum a String
                 comic.getPrice(),
                 comic.getImageUrl());
     }

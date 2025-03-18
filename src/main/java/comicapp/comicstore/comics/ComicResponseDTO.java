@@ -10,5 +10,6 @@ public record ComicResponseDTO(
         String description,
         String state,
         float price,
-        String imageUrl) {
+        String imageUrl
+) {
 }

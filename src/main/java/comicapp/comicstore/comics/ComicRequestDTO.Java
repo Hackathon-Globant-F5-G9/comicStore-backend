@@ -1,8 +1,9 @@
-import jakarta.validation.constraints.Future;
+package comicapp.comicstore.comics;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
-public reecord ComicRequestDTO(
+public record ComicRequestDTO(
     Long id,
 
     @NotNull(message = "The ISBN cannot be null")
@@ -20,16 +21,15 @@ public reecord ComicRequestDTO(
     @NotEmpty(message = "The genre cannot be empty")
     String genre,
 
-    @NotEmpty(message = "The description cannot be empty")
     String description,
 
-    @NotNull(message = "The state cannot be null")
-    State state,
+    //@NotNull(message = "The state cannot be null")
+    Enum state,
 
-    @NotNull(message = "The price cannot be null")
+    //@NotNull(message = "The price cannot be null")
     float price,
 
-    @NotEmpty(message = "The imageUrl cannot be empty")
+    //@NotEmpty(message = "The imageUrl cannot be empty")
     String imageUrl
 ){
 }
