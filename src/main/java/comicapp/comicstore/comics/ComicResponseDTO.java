@@ -2,7 +2,7 @@ package comicapp.comicstore.comics;
 
 public record ComicResponseDTO(
         Long id,
-        Long ISBN,
+        String ISBN,
         String name,
         String author,
         String editorial,

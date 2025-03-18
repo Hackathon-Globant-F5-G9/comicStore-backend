@@ -10,7 +10,7 @@ public class ComicMapper {
         comic.setEditorial(comicRequestDTO.editorial());
         comic.setGenre(comicRequestDTO.genre());
         comic.setDescription(comicRequestDTO.description());
-        comic.setState(Comic.State.valueOf(comicRequestDTO.state().toUpperCase())); // Convertir String a enum
+        comic.setState(Comic.State.valueOf(comicRequestDTO.state().toUpperCase())); // Convert String to enum
         comic.setPrice(comicRequestDTO.price());
         comic.setImageUrl(comicRequestDTO.imageUrl());
         return comic;
@@ -25,7 +25,7 @@ public class ComicMapper {
                 comic.getEditorial(),
                 comic.getGenre(),
                 comic.getDescription(),
-                comic.getState().name(), // Convert enum a String
+                comic.getState().name(), // Convert enum to String
                 comic.getPrice(),
                 comic.getImageUrl());
     }

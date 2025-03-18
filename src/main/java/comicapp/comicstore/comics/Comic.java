@@ -12,7 +12,7 @@ public class Comic {
     private Long id;
 
     @Column(name = "ISBN", nullable = false, unique = true)
-    private Long ISBN;
+    private String ISBN;
 
     private String name;
     private String author;
@@ -30,7 +30,7 @@ public class Comic {
     public Comic() {
     }
 
-    public Comic(Long ISBN, String name, String author, String editorial, String genre, String description, State state,
+    public Comic(String ISBN, String name, String author, String editorial, String genre, String description, State state,
             float price, String imageUrl) {
         this.ISBN = ISBN;
         this.name = name;
@@ -51,7 +51,7 @@ public class Comic {
         return id;
     }
 
-    public Long getISBN() {
+    public String getISBN() {
         return ISBN;
     }
 
@@ -91,7 +91,7 @@ public class Comic {
         this.id = id;
     }
 
-    public void setISBN(Long ISBN) {
+    public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
 

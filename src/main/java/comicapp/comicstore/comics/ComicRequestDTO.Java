@@ -7,7 +7,7 @@ public record ComicRequestDTO(
     Long id,
 
     @NotNull(message = "The ISBN cannot be null")
-    Long ISBN,
+    String ISBN,
 
     @NotEmpty(message = "The name cannot be empty")
     String name,
@@ -23,13 +23,13 @@ public record ComicRequestDTO(
 
     String description,
 
-    //@NotNull(message = "The state cannot be null")
-    Enum state,
+    @NotNull(message = "The state cannot be null")
+    String state,
 
     //@NotNull(message = "The price cannot be null")
     float price,
 
-    //@NotEmpty(message = "The imageUrl cannot be empty")
+    @NotEmpty(message = "The imageUrl cannot be empty")
     String imageUrl
 ){
 }
